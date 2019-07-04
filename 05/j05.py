@@ -1,47 +1,12 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from html.parser import HTMLParser
 import re
 import sys
+import time
 
 import requests
 
-morse = {
-    '.-'   : "A",
-    '-...' : "B",
-    '-.-.' : "C",
-    '-..'  : "D",
-    '.'    : "E",
-    '..-.' : "F",
-    '--.'  : "G",
-    '....' : "H",
-    '..'   : "I",
-    '.---' : "J",
-    '-.-'  : "K",
-    '.-..' : "L",
-    '--'   : "M",
-    '-.'   : "N",
-    '---'  : "O",
-    '.--.' : "P",
-    '--.-' : "Q",
-    '.-.'  : "R",
-    '...'  : "S",
-    '-'    : "T",
-    '..-'  : "U",
-    '...-' : "V",
-    '.--'  : "W",
-    '-..-' : "X",
-    '-.--' : "Y",
-    '--..' : "Z",
-    '.----' : "1",
-    '..---' : "2",
-    '...--' : "3",
-    '....-' : "4",
-    '.....' : "5",
-    '-....' : "6",
-    '--...' : "7",
-    '---..' : "8",
-    '----.' : "9",
-    '-----' : "0",
-}
 """
 <!doctype html>
 <html>
@@ -71,6 +36,7 @@ class MyHTMLParser(HTMLParser):
     token = None
     in_p = False
     ok = False
+    p = ""
     def handle_starttag(self, tag, attrs):
         if tag == 'input':
             cur_name = ""
@@ -93,27 +59,29 @@ class MyHTMLParser(HTMLParser):
         if self.in_p:
             if 'You are getting closer' in data:
                 self.ok = True
+            self.p = data
     def handle_endtag(self, tag):
         if tag == 'p':
             self.in_p = False
+
 """
-You went 11m at a speed of 11km/h. You are getting away… UP (increasing)
-You went 11m at a speed of 3km/h. You are getting closer… DOWN (decreasing)
-You went 6m at a speed of 0km/h. You are getting away… W (increasing)
-You went 13m at a speed of 0km/h. You are getting closer… E (decreasing)
+You went 11m at a speed of 11km/h. You are getting away... UP (increasing)
+You went 11m at a speed of 3km/h. You are getting closer... DOWN (decreasing)
+You went 6m at a speed of 0km/h. You are getting away... W (increasing)
+You went 13m at a speed of 0km/h. You are getting closer... E (decreasing)
 """
+
 r = requests.get('https://drivetothetarget.web.ctfcompetition.com')
 parser = MyHTMLParser()
 while 1:
     parser.feed(r.text)
-    token = re.sub('[A-Za-z0-9]', '', parser.token)
-    code = "NONE"
-    token = token.replace('_', '.')
-    if token in morse:
-        code = morse[token]
-    print("%s,%s,%s,%s,%s,%s" % (parser.lat, parser.lon, parser.token[-10:], token, code, parser.ok))
     lat = float(parser.lat)
-    lon = float(parser.lon)    
-    lat -= .00001
+    lon = float(parser.lon)
 
-    r = requests.get('https://drivetothetarget.web.ctfcompetition.com?lat=%s&lon=%s&token=%s' % (str(lat), str(lon), parser.token))
+    print("%.5f,%.5f,%s,%s,%s" % (lat, lon, parser.token[:12], parser.token[12:], parser.ok))
+
+    lat -= .00003
+    lon -= .00003
+    time.sleep(0.5)
+
+    r = requests.get('https://drivetothetarget.web.ctfcompetition.com?lat=%.5f&lon=%.5f&token=%s' % (lat, lon, parser.token))
