@@ -1,0 +1,499 @@
+
+	LOAD_INTO   acc1  0 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  17488 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  16758 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  16599 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  16285 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  16094 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  15505 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  15417 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  14832 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  14450 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  13893 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  13926 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  13437 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  12833 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  12741 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  12533 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  11504 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  11342 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  10503 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  10550 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  10319 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  975 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  1007 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  892 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  893 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  660 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  743 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  267 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  344 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  264 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  339 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  208 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  216 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  242 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  172 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  74 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  49 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  119 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  113 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  119 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  106 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc2  1 LOADEND 
+ 
+><
+ 
+
+
+marker_008 
+	POP   acc1  
+	PUSH_TO_STACK   acc2  
+	PUSH_TO_STACK   acc1  
+	LOAD_INTO   acc1  389 LOADEND 
+
+	PUSH_TO_STACK   acc1  
+	PUSH_TO_STACK   acc2  
+
+	JUMP_TO  to_marker_005 
+
+	XOR  
+	PRINT_TOP  
+
+	LOAD_INTO   acc1  1 LOADEND 
+	PUSH_TO_STACK   acc1  
+	ADD  
+	POP   acc2  
+
+	IF_NOT_ZERO  
+	JUMP_TO  to_marker_008 
+	ENDIF  
+ 
+><
+ 
+
+	LOAD_INTO   acc1  98426 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  97850 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  97604 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  97280 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  96815 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  96443 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  96354 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  95934 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  94865 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  94952 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  94669 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  94440 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  93969 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  93766 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc2  99 LOADEND 
+ 
+><
+ 
+
+
+marker_007 
+	POP   acc1  
+	PUSH_TO_STACK   acc2  
+	PUSH_TO_STACK   acc1  
+	LOAD_INTO   acc1  568 LOADEND 
+
+	PUSH_TO_STACK   acc1  
+	PUSH_TO_STACK   acc2  
+
+	JUMP_TO  to_marker_005 
+
+	XOR  
+	PRINT_TOP  
+
+	LOAD_INTO   acc1  1 LOADEND 
+	PUSH_TO_STACK   acc1  
+	ADD  
+	POP   acc2  
+
+	IF_NOT_ZERO  
+	JUMP_TO  to_marker_007 
+	ENDIF  
+ 
+><
+ 
+
+	LOAD_INTO   acc1  101141058 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  101060206 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  101030055 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100998966 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100887990 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100767085 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100707036 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100656111 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100404094 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100160922 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100131019 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100111100 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100059926 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100049982 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  100030045 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9989997 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9981858 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9980815 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9978842 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9965794 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9957564 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9938304 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9935427 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9932289 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9931494 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9927388 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9926376 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9923213 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9921394 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9919154 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9918082 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc1  9916239 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	LOAD_INTO   acc2  765 LOADEND 
+ 
+><
+ 
+
+
+marker_011 
+	POP   acc1  
+	PUSH_TO_STACK   acc2  
+	PUSH_TO_STACK   acc1  
+	LOAD_INTO   acc1  1023 LOADEND 
+
+	PUSH_TO_STACK   acc1  
+	PUSH_TO_STACK   acc2  
+
+	JUMP_TO  to_marker_005 
+
+	XOR  
+	PRINT_TOP  
+
+	LOAD_INTO   acc1  1 LOADEND 
+	PUSH_TO_STACK   acc1  
+	ADD  
+	POP   acc2  
+
+	IF_NOT_ZERO  
+	JUMP_TO  to_marker_011 
+	ENDIF  
+
+	EXIT  
+ 
+><
+ 
+
+
+marker_005 
+
+	LOAD_INTO   acc1  2 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+marker_006 
+
+	JUMP_TO  to_marker_012 
+
+
+marker_009 
+	IF_ZERO  
+	POP_OUT  
+	JUMP_TO  to_marker_010  LOADEND 
+	ENDIF  
+
+	POP_OUT  
+	JUMP_TO  to_marker_001 
+
+
+marker_002 
+	IF_ZERO  
+	POP_OUT  
+	JUMP_TO  to_marker_010 
+	ENDIF  
+
+	POP_OUT  
+	POP   acc1  
+	LOAD_INTO   acc2  1 LOADEND 
+	PUSH_TO_STACK   acc2  
+	SUB  
+
+	IF_ZERO  
+	POP_OUT  
+	POP   acc2  
+	PUSH_TO_STACK   acc1  
+	PUSH_TO_STACK   acc2  
+	JUMP_TOP  
+	ENDIF  
+	PUSH_TO_STACK   acc1  
+
+
+marker_010 
+	LOAD_INTO   acc2  1 LOADEND 
+	PUSH_TO_STACK   acc2  
+	ADD  
+	JUMP_TO  to_marker_006 
+ 
+><
+ 
+
+
+marker_012 
+
+	CLONE  
+	LOAD_INTO   acc1  2 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+
+marker_003 
+	SUB  
+	IF_ZERO  
+	POP_OUT  
+	LOAD_INTO   acc1  1 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	JUMP_TO  to_marker_009 
+	ENDIF  
+
+	POP_OUT  
+	CLONE  
+	PUSH_TO_STACK   acc1  
+
+	MODULO  
+	IF_ZERO  
+	JUMP_TO  to_marker_009 
+	ENDIF  
+
+	POP_OUT  
+	CLONE  
+	PUSH_TO_STACK   acc1  
+	LOAD_INTO   acc1  1 LOADEND 
+
+	PUSH_TO_STACK   acc1  
+	ADD  
+	CLONE  
+	POP   acc1  
+	JUMP_TO  to_marker_003 
+ 
+><
+ 
+
+
+marker_001 
+
+	CLONE  
+	CLONE  
+	LOAD_INTO   acc2  0 LOADEND 
+	PUSH_TO_STACK   acc2  
+
+
+marker_004 
+	LOAD_INTO   acc1  10 LOADEND 
+	PUSH_TO_STACK   acc1  
+
+	MULTIPLY  
+	POP   acc2  
+	PUSH_TO_STACK   acc1  
+	MODULO  
+
+	PUSH_TO_STACK   acc2  
+	ADD  
+	POP   acc2  
+	POP   acc1  
+	CLONE  
+	PUSH_TO_STACK   acc2  
+	SUB  
+
+	IF_ZERO  
+	POP_OUT  
+	LOAD_INTO   acc2  1 LOADEND 
+	PUSH_TO_STACK   acc2  
+	JUMP_TO  to_marker_002 
+	ENDIF  
+
+	POP_OUT  
+	PUSH_TO_STACK   acc1  
+	LOAD_INTO   acc1  10 LOADEND 
+	PUSH_TO_STACK   acc1  
+	DIVIDE  
+
+	IF_ZERO  
+	JUMP_TO  to_marker_002 
+	ENDIF  
+
+	CLONE  
+	PUSH_TO_STACK   acc2  
+	JUMP_TO  to_marker_004 
