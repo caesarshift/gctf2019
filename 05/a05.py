@@ -72,8 +72,8 @@ while True:
     # print(lat)
 
     url = "https://drivetothetarget.web.ctfcompetition.com/?"
-    url += "lat=" + str(lat)
-    url += "&lon=" + str(lon)
+    url += "lat=%.5f" % lat
+    url += "&lon=%.5f" % lon
     url += "&token=" + token
 
     response = requests.get(url)
