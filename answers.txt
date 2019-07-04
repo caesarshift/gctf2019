@@ -1,0 +1,12 @@
+https://capturetheflag.withgoogle.com/
+
+01
+CTF{welcome_to_googlectf}
+
+02
+CTF{4efcc72090af28fd33a2118985541f92e793477f}
+
+03
+CTF{4ll_D474_5h4ll_B3_Fr33}
+
+04
