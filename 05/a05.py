@@ -63,11 +63,11 @@ too_fast = False
 lat_step = -0.00003
 lon_step = 0.00003
 
-with open("output_a05.txt","w") as out:
+with open("output_a05.txt","a") as out:
     c = 0
     out.write("timestamp|counter|lat|long|hint|token\n")
     while True:
-        # print("STEP " + "-"*80)
+        c += 1
 
         # print(lat)
         lat = float(lat) + float(lat_step)
