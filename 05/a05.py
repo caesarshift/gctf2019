@@ -71,6 +71,9 @@ lat_step = 0.00003
 lon_step = 0.00003
 
 direction_changes = 0
+lat_bounce = 0
+lon_bounce = 0
+
 
 with open("output_a05.txt","a") as out:
     c = 0
@@ -101,16 +104,21 @@ with open("output_a05.txt","a") as out:
         if "away" in hint:
             lat_step = lat_step * -1
             direction_changes += 1
+            lat_bounce += 1
             print("changing lat direction", lat_step)
 
         # output
         ts = time.time()
         st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-        output = "%s|%-4s|%-10s|%-10s|%s|%s" % (st, str(c), lat, lon, hint, token)
+        output = "%s|%-5s|%-10s|%-10s|%s|%s" % (st, str(c), lat, lon, hint, token)
         print(lat_step, lon_step, output)
-        output = "%s|%-4s|%-10s|%-10s|%s|%s\n" % (st, str(c), lat, lon, hint, token)
+        output = "%s|%-5s|%-10s|%-10s|%s|%s\n" % (st, str(c), lat, lon, hint, token)
         out.write(output)
+
+        if lat_bounce > 5:
+            print("lat is bouncing.  setting step to 0")
+            lat_step = 0
 
 
         # ----------------------------------------------
@@ -133,20 +141,24 @@ with open("output_a05.txt","a") as out:
         if "away" in hint:
             lon_step = lon_step * -1
             direction_changes += 1
+            lon_bounce += 1
             print("changing lon direction", lon_step)
 
         # output
         ts = time.time()
         st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-        output = "%s|%-4s|%-10s|%-10s|%s|%s" % (st, str(c), lat, lon, hint, token)
+        output = "%s|%-5s|%-10s|%-10s|%s|%s" % (st, str(c), lat, lon, hint, token)
         print(lat_step, lon_step, output)
-        output = "%s|%-4s|%-10s|%-10s|%s|%s\n" % (st, str(c), lat, lon, hint, token)
+        output = "%s|%-5s|%-10s|%-10s|%s|%s\n" % (st, str(c), lat, lon, hint, token)
         out.write(output)
 
+        if lon_bounce > 5:
+            print("lon is bouncing.  setting step to 0")
+            lon_stop = 0
 
 
-        if direction_changes > 10:
+        if lat_bounce == 0 and lon_bounce == 0:
             print("We've bracketed the Bismark!")
             sys.exit(0)
 
