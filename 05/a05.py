@@ -46,6 +46,11 @@ def last_lon(x):
     with open("lon.txt",'w') as o:
         o.write(str(x))
 
+def is_closer(hint):
+    if "closer" in hint:
+        return True
+    else:
+        return False
 
 
 # get initial token
@@ -59,9 +64,13 @@ lon = get_lon(response.text)
 # print(lat, lon, token)
 
 too_fast = False
-# lat_step = 0.00003
-lat_step = -0.00003
+# lat_step = -0.00003
+# lon_step =  0.00003
+
+lat_step = 0.00003
 lon_step = 0.00003
+
+direction_changes = 0
 
 with open("output_a05.txt","a") as out:
     c = 0
@@ -69,48 +78,77 @@ with open("output_a05.txt","a") as out:
     while True:
         c += 1
 
-        # print(lat)
+        # two step process - 
+        #   adjust lat and check if closer
+        #   adjust lon and check if closer
+
+
+        # ----------------------------------------------
+        # adjust lat and check if closer
+        # ----------------------------------------------
         lat = float(lat) + float(lat_step)
-        lon = float(lon) + float(lon_step)
-        # print(lat)
 
         url = "https://drivetothetarget.web.ctfcompetition.com/?"
         url += "lat=%.5f" % lat
         url += "&lon=%.5f" % lon
         url += "&token=" + token
-
         response = requests.get(url)
-        # print(response.text)
         token = get_token(response.text)
         lat = get_lat(response.text)
         lon = get_lon(response.text)
         hint = get_hint(response.text)
 
+        if "away" in hint:
+            lat_step = lat_step * -1
+            direction_changes += 1
+            print("changing lat direction", lat_step)
+
+        # output
         ts = time.time()
         st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-        output = "%s|%s|%s|%s|%s|%s" % (st, str(c), lat, lon, hint, token)
-        print(output)
-        output = "%s|%s|%s|%s|%s|%s\n" % (st, str(c), lat, lon, hint, token)
+        output = "%s|%-4s|%-10s|%-10s|%s|%s" % (st, str(c), lat, lon, hint, token)
+        print(lat_step, lon_step, output)
+        output = "%s|%-4s|%-10s|%-10s|%s|%s\n" % (st, str(c), lat, lon, hint, token)
         out.write(output)
-        # print("\t",hint)
 
-        # if "this is too fast!" in hint:
-        #     lat_step = lat_step - 0.00001
-        #     too_fast = True
 
-        # if "You are getting closer" in hint:
-        #     lat_step = lat_step + 0.00001
-        
-        # if "You are getting away" in hint:
-        #     lat_step = lat_step * -1.0
-        #     # lon_step = lon_step * -1.0
+        # ----------------------------------------------
+        #   adjust lon and check if closer
+        # ----------------------------------------------
 
-        # if not too_fast:
-        #     print("accelerating by 0.00001")
-        #     lat_step = lat_step + 0.00001
-        last_lat(lat)
-        last_lon(lon)
+        lon = float(lon) + float(lon_step)
 
-        time.sleep(1)
+        url = "https://drivetothetarget.web.ctfcompetition.com/?"
+        url += "lat=%.5f" % lat
+        url += "&lon=%.5f" % lon
+        url += "&token=" + token
+        response = requests.get(url)
+        token = get_token(response.text)
+        lat = get_lat(response.text)
+        lon = get_lon(response.text)
+        hint = get_hint(response.text)
+
+
+        if "away" in hint:
+            lon_step = lon_step * -1
+            direction_changes += 1
+            print("changing lon direction", lon_step)
+
+        # output
+        ts = time.time()
+        st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+
+        output = "%s|%-4s|%-10s|%-10s|%s|%s" % (st, str(c), lat, lon, hint, token)
+        print(lat_step, lon_step, output)
+        output = "%s|%-4s|%-10s|%-10s|%s|%s\n" % (st, str(c), lat, lon, hint, token)
+        out.write(output)
+
+
+
+        if direction_changes > 10:
+            print("We've bracketed the Bismark!")
+            sys.exit(0)
+
+        time.sleep(0.1)
 
