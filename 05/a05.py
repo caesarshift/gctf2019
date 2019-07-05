@@ -65,6 +65,7 @@ lon_step = 0.00003
 
 with open("output_a05.txt","w") as out:
     c = 0
+    out.write("timestamp|counter|lat|long|hint|token\n")
     while True:
         # print("STEP " + "-"*80)
 
