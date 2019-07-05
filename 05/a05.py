@@ -2,7 +2,7 @@ from pyquery import PyQuery as pq
 import requests
 import sys
 import time
-
+import datetime
 
 iteration = 0
 lat = 0
@@ -63,45 +63,53 @@ too_fast = False
 lat_step = -0.00003
 lon_step = 0.00003
 
-while True:
-    # print("STEP " + "-"*80)
+with open("output_a05.txt","w") as out:
+    c = 0
+    while True:
+        # print("STEP " + "-"*80)
 
-    # print(lat)
-    lat = float(lat) + float(lat_step)
-    lon = float(lon) + float(lon_step)
-    # print(lat)
+        # print(lat)
+        lat = float(lat) + float(lat_step)
+        lon = float(lon) + float(lon_step)
+        # print(lat)
 
-    url = "https://drivetothetarget.web.ctfcompetition.com/?"
-    url += "lat=%.5f" % lat
-    url += "&lon=%.5f" % lon
-    url += "&token=" + token
+        url = "https://drivetothetarget.web.ctfcompetition.com/?"
+        url += "lat=%.5f" % lat
+        url += "&lon=%.5f" % lon
+        url += "&token=" + token
 
-    response = requests.get(url)
-    # print(response.text)
-    token = get_token(response.text)
-    lat = get_lat(response.text)
-    lon = get_lon(response.text)
-    hint = get_hint(response.text)
-    print(lat_step, lat, lon, hint)
+        response = requests.get(url)
+        # print(response.text)
+        token = get_token(response.text)
+        lat = get_lat(response.text)
+        lon = get_lon(response.text)
+        hint = get_hint(response.text)
 
-    # print("\t",hint)
+        ts = time.time()
+        st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-    # if "this is too fast!" in hint:
-    #     lat_step = lat_step - 0.00001
-    #     too_fast = True
+        output = "%s|%s|%s|%s|%s|%s" % (st, str(c), lat, lon, hint, token)
+        print(output)
+        output = "%s|%s|%s|%s|%s|%s\n" % (st, str(c), lat, lon, hint, token)
+        out.write(output)
+        # print("\t",hint)
 
-    # if "You are getting closer" in hint:
-    #     lat_step = lat_step + 0.00001
-    
-    # if "You are getting away" in hint:
-    #     lat_step = lat_step * -1.0
-    #     # lon_step = lon_step * -1.0
+        # if "this is too fast!" in hint:
+        #     lat_step = lat_step - 0.00001
+        #     too_fast = True
 
-    # if not too_fast:
-    #     print("accelerating by 0.00001")
-    #     lat_step = lat_step + 0.00001
-    last_lat(lat)
-    last_lon(lon)
+        # if "You are getting closer" in hint:
+        #     lat_step = lat_step + 0.00001
+        
+        # if "You are getting away" in hint:
+        #     lat_step = lat_step * -1.0
+        #     # lon_step = lon_step * -1.0
 
-    time.sleep(0.1)
+        # if not too_fast:
+        #     print("accelerating by 0.00001")
+        #     lat_step = lat_step + 0.00001
+        last_lat(lat)
+        last_lon(lon)
+
+        time.sleep(1)
 
